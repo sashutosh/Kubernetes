@@ -1,0 +1,32 @@
+kubeadm join 15.114.82.116:6443 --token 1rpsx1.jyetnt6wm2upeszy \
+    --discovery-token-ca-cert-hash sha256:aa626143118d686bb06a9bd02301176ead6b234b24634f30267673334b3b7ca9
+
+
+
+--Install k9s
+sudo wget https://github.com/derailed/k9s/releases/download/0.9.2/k9s_0.9.2_Linux_x86_64.tar.gz
+sudo chmod +x k9s_0.9.2_Linux_x86_64.tar.gz
+sudo tar zxf k9s_0.9.2_Linux_x86_64.tar.gz
+mv k9s /usr/local/bin/k9s
+---------------------------------------------
+--Kubernetes setup on CentOS7
+1. Set proxy for yum
+file /etc/yum.conf
+proxy=http://web-proxy.in.softwaregrp.net:8080
+
+2. Set proxy for docker service
+File
+Create Directory docker.service.d in /etc/systemd/system/
+File- https-proxy.conf
+Content
+[Service]
+Environment="HTTP_PROXY=http://web-proxy.us.softwaregrp.net:8080/"
+Environment="HTTPS_PROXY=http://web-proxy.us.softwaregrp.net:8080/"
+Environment="NO_PROXY=127.0.0.1,localhost,swinfra.net,10.0.0.0,swinfra.net:80
+
+
+--------------
+kubeadm join 15.114.180.151:6443 --token 3eiait.rbt7gn7ccop713dr \
+    --discovery-token-ca-cert-hash sha256:1625a3013894c2b616f4f4f3d3add70bbd1f7254ed92a93f18896188b1571213
+	
+master - 15.114.180.151	
